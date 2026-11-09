@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ControlInventarioChevignon {
+public class ControllInventarioChevignon {
 
     public static boolean nombreFuncion(String[] array, String searchedName) {
         for (String referencia : array) {
@@ -22,11 +22,9 @@ public class ControlInventarioChevignon {
             null
         };
 
-}
-
         int opcion = 0;
-           
-while (opcion != 4) {
+
+        while (opcion != 4) {
             System.out.println("\n--- CONTROL DE REFERENCIAS - CHEVIGNON ---");
             System.out.println("1. Listar referencias");
             System.out.println("2. Buscar referencia");
@@ -36,13 +34,14 @@ while (opcion != 4) {
 
             if (scanner.hasNextInt()) {
                 opcion = scanner.nextInt();
-                scanner.nextLine(); 
+                scanner.nextLine();
             } else {
                 System.out.println("¡Error! Por favor, ingrese un número válido.");
-                scanner.nextLine(); 
+                scanner.nextLine();
                 continue;
             }
-switch (opcion) {
+
+            switch (opcion) {
                 case 1:
                     System.out.println("\n--- LISTADO DE REFERENCIAS ACTIVAS ---");
                     boolean hayElementos = false;
@@ -61,7 +60,6 @@ switch (opcion) {
                     System.out.print("\nIngrese el nombre de la prenda a buscar: ");
                     String prendaBuscada = scanner.nextLine();
                     
-                    
                     boolean encontrada = nombreFuncion(inventario, prendaBuscada);
                     
                     if (encontrada) {
@@ -70,6 +68,7 @@ switch (opcion) {
                         System.out.println("¡Resultado: La referencia '" + prendaBuscada + "' NO existe en el inventario.");
                     }
                     break;
+
                 case 3:
                     System.out.print("\nIngrese el nombre de la nueva referencia a agregar: ");
                     String nuevaPrenda = scanner.nextLine();
@@ -80,7 +79,26 @@ switch (opcion) {
                             inventario[i] = nuevaPrenda;
                             System.out.println("¡Éxito! Referencia agregada correctamente en la posición " + i + ".");
                             agregado = true;
-                            break; 
+                            break;
                         }
                     }
                     
+                    if (!agregado) {
+                        System.out.println("¡Atención! El inventario está lleno (capacidad máxima de 5 alcanzada).");
+                    }
+                    break;
+
+                case 4:
+                    System.out.println("\nSaliendo del sistema de inventario. ¡Hasta luego!");
+                    break;
+
+                default:
+                    System.out.println("\nOpción no válida. Por favor, seleccione un número entre 1 y 4."); 
+                     System.out.println
+                    break;
+            }
+        }
+
+        scanner.close();
+    }
+}

@@ -56,4 +56,18 @@ switch (opcion) {
                         System.out.println("El inventario está vacío.");
                     }
                     break;
+
+                case 2:
+                    System.out.print("\nIngrese el nombre de la prenda a buscar: ");
+                    String prendaBuscada = scanner.nextLine();
+                    
+                    // Invocación de la función estática obligatoria
+                    boolean encontrada = nombreFuncion(inventario, prendaBuscada);
+                    
+                    if (encontrada) {
+                        System.out.println("¡Resultado: La referencia '" + prendaBuscada + "' SÍ se encuentra en el inventario.");
+                    } else {
+                        System.out.println("¡Resultado: La referencia '" + prendaBuscada + "' NO existe en el inventario.");
+                    }
+                    break;
                     

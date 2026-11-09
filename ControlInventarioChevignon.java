@@ -61,7 +61,7 @@ switch (opcion) {
                     System.out.print("\nIngrese el nombre de la prenda a buscar: ");
                     String prendaBuscada = scanner.nextLine();
                     
-                    // Invocación de la función estática obligatoria
+                    
                     boolean encontrada = nombreFuncion(inventario, prendaBuscada);
                     
                     if (encontrada) {
@@ -70,4 +70,17 @@ switch (opcion) {
                         System.out.println("¡Resultado: La referencia '" + prendaBuscada + "' NO existe en el inventario.");
                     }
                     break;
+                case 3:
+                    System.out.print("\nIngrese el nombre de la nueva referencia a agregar: ");
+                    String nuevaPrenda = scanner.nextLine();
+                    
+                    boolean agregado = false;
+                    for (int i = 0; i < inventario.length; i++) {
+                        if (inventario[i] == null) {
+                            inventario[i] = nuevaPrenda;
+                            System.out.println("¡Éxito! Referencia agregada correctamente en la posición " + i + ".");
+                            agregado = true;
+                            break; 
+                        }
+                    }
                     

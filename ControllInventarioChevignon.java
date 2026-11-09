@@ -57,8 +57,26 @@ public class ControllInventarioChevignon {
                     break;
 
                 case 2:
-                    System.out.print("\nIngrese el nombre de la prenda a buscar: ");
-                    String prendaBuscada = scanner.nextLine();
+                    System.out.println("\n--- LISTA DE REFERENCIAS DISPONIBLES ---");
+                    for (int i = 0; i < inventario.length; i++) {
+                        if (inventario[i] != null) {
+                            System.out.println((i + 1) + ". " + inventario[i]);
+                        }
+                    }
+                    System.out.print("\nIngrese el número o el nombre de la prenda a buscar: ");
+                    String entradaBusqueda = scanner.nextLine();
+                    
+                    String prendaBuscada = entradaBusqueda;
+                    
+                    
+                    try {
+                        int index = Integer.parseInt(entradaBusqueda) - 1;
+                        if (index >= 0 && index < inventario.length && inventario[index] != null) {
+                            prendaBuscada = inventario[index];
+                        }
+                    } catch (NumberFormatException e) {
+                        
+                    }
                     
                     boolean encontrada = nombreFuncion(inventario, prendaBuscada);
                     
@@ -77,7 +95,7 @@ public class ControllInventarioChevignon {
                     for (int i = 0; i < inventario.length; i++) {
                         if (inventario[i] == null) {
                             inventario[i] = nuevaPrenda;
-                            System.out.println("¡Éxito! Referencia agregada correctamente en la posición " + i + ".");
+                            System.out.println("¡Éxito! Referencia agregada correctamente en la posición " + (i + 1) + ".");
                             agregado = true;
                             break;
                         }
@@ -94,7 +112,7 @@ public class ControllInventarioChevignon {
 
                 default:
                     System.out.println("\nOpción no válida. Por favor, seleccione un número entre 1 y 4."); 
-                     System.out.println
+                     System.out.println ();
                     break;
             }
         }

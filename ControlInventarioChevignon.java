@@ -42,3 +42,18 @@ while (opcion != 4) {
                 scanner.nextLine(); 
                 continue;
             }
+switch (opcion) {
+                case 1:
+                    System.out.println("\n--- LISTADO DE REFERENCIAS ACTIVAS ---");
+                    boolean hayElementos = false;
+                    for (String ref : inventario) {
+                        if (ref != null) {
+                            System.out.println("- " + ref);
+                            hayElementos = true;
+                        }
+                    }
+                    if (!hayElementos) {
+                        System.out.println("El inventario está vacío.");
+                    }
+                    break;
+                    
